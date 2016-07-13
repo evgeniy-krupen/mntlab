@@ -10,7 +10,7 @@ No | Issue | How to Find | Time to find (min)| Hot to fix | Time to fix (min)
 3.2 | Tomcat shows that started but not running | ps -ef grep tomcat, check catalina.out, find trouble with java | 20 | uname -a(arch), java -version (i understood that OS 64 bit, java 32bit), changed java version by alternatives, startup.sh, ps -ef, check netstat -natpl (tomcat listen sockets), curl from host (503), check vhost.conf, found mod_jk (log), trouble with tomcat.worker  | 60
 3.3 | (tomcat.worker) connecting to tomcat failed | check worker.properties and found mistakes| 15| I corrected mistakes by sed (2 steps: ip, worker's name), restart httpd, curl from host and VM (status 200), server works, but curl -IL 192.168.56.10:8080 from host and i had status 200 from tomcat, checked iptables (iptables -L -n) -> iptables is epmty -> iptables doesn't work -> service iptables start (failed)| 30
 4 | service iptables start (failed)| I checked iptables (port 80 hasn't been opened) and i couldn't modify iptables by root | 20 | I deleted immutable attribute on iptables (chattr -i), changed iptables (added input 80, include ESTABLISHED to state) through the replacement file, iptables restart,chattr +i, check curl from host 192.168.56.10:8080 (couldn't connect). restart VM | 50
-5| tomcat is not running | chkconfig grep tomcat| 5| tomcat off on level 2-5, restart VM | 5
+5| tomcat is not running | chkconfig grep tomcat| 5| chkconfig tomcat on level 2-5, restart VM | 5
 
 **Server works but i saw and fixsome mistakes:**
 
