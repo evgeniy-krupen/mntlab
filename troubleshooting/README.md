@@ -22,14 +22,17 @@ No | Issue | How to Find | Time to find (min)| Hot to fix | Time to fix (min)
 **Questions & Answers:**
 
 **What java version is installed?**
+
 I can check it by alternatives --config java (i see all version java which installed on this environment)
 If i use command "java -version" i can see current version java
 
 **How was it installed and configured?**
+
 Because the java is located on /opt/oracle ...
 In has been installed by rpm file and config
 
 **Where are log files of tomcat and httpd?**
+
   Httpd: /var/log/httpd/  
   Tomcat: /opt/apache/tomcat/7.0.62/logs/
 
