@@ -61,5 +61,7 @@ For Tomcat: server.xml
 
 **What does it mean: “load average: 1.18, 0.95, 0.83”?**
 
+This string shows avarage CPU usage per 1min, 5min, 15 min. Digit 1 means 100% lead per one core. In this example digit 1.18 means than 1st core is loaded to 100% and 2nd core is loaded to 18% (if we have more than 1 core on processor)
+
 
 
