@@ -3,7 +3,7 @@
 No | Issue | How to Find | Time to find (min)| Hot to fix | Time to fix (min)
 ---| :---: | :---: | :---: | :---: | :---: |
 1 | Site does not work | ifconfig, curl -IL 192.168.56.10 (from host) (error 302), curl -IL 192.168.56.10 (errror 302, 503)| 3  | less httpd.conf, vhosts.conf (saw 2 virtual hosts), i made comment on block VirtualHost in httpd.conf, restart httpd | 10
-2 | curl -IL 192.168.56.10 (status 200), but site doesn't work | curl -IL 192.168.56.10 from host (200), from VM (200) but if curl -IL localhost (error 503), i found the error logs directory (saw in vhosts.conf) | 3| i changed (mntlab:80) to (*:80) in vhosts.conf, restart httpd | 15
+2 | curl -IL 192.168.56.10 (status 200), but site doesn't work | curl -IL 192.168.56.10 from host (200), from VM (200) but if curl -IL localhost (error 503), i found the error logs directory (saw in vhosts.conf) | 3| I changed (mntlab:80) to (*:80) in vhosts.conf, restart httpd | 15
 3 | curl -IL 192.168.56.10 (error 503) from host | Every requests go to VirtualHost in vhosts.com, but 503 (it's backend fail), check tomcat | 10 | ps -ef  grep tomcat (not running), service tomcat start (not started)| 5
 3.1 | tomcat is not starting | go to /etc/init.d/tomcat, startup.sh, catalina.sh and not found of define CATALINA_HOME | 10| switch to tomcat user, echo $CATALINA_HOME, check it from bash_profile -> bash rc, comment it, (swith to root and startup.sh) | 20
 3.2 | catalina.out': Permission denied | check ls -ld /path-to-tomcat/logs (root is owner) | 5 | chown tomcat, starting tomcat | 15
