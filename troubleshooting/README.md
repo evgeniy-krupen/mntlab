@@ -29,7 +29,7 @@ If i use command "java -version" i can see current version java
 **How was it installed and configured?**
 
 Because the java is located on /opt/oracle ...
-In has been installed by rpm file and config
+It has been installed by rpm file and config
 
 **Where are log files of tomcat and httpd?**
 
@@ -38,13 +38,28 @@ In has been installed by rpm file and config
 
 **Where is JAVA_HOME and what is it?**
 
+Java_Home is the environment variable that shows point at your Java Development Kit installation.
+
 **Where is tomcat installed?**
+
+Tomcat installed in /opt/apache/tomcat/7.0.62/
 
 **What is CATALINA_HOME?**
 
+CATALINA_HOME is variable that shows point at your Catalina "build" directory (Tomcat root directory)
+
 **What users run httpd and tomcat processes? How is it configured?**
+
+User apache runs httpd process. It configured in /etc/httpd/conf/httpd.conf
+User tomcat runs tomcat process. It configured in /etc/init.d/tomcat
+
 
 **What configuration files are used to make components work with each other?**
 
+For httpd: httpd.conf, vhost.conf, worker.properties
+For Tomcat: server.xml
+
 **What does it mean: “load average: 1.18, 0.95, 0.83”?**
+
+
 
