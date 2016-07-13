@@ -18,3 +18,6 @@ No | Issue | How to Find | Time to find (min)| Hot to fix | Time to fix (min)
 ---| :---: | :---: | :---: | :---: | :---: |
 6 | tomcat listen 192.168.56.10|netstat -natulp|5|I changed server.xml (adress 192.168.56.10->127.0.0.1) by sed (on script) and worker.properties, restart httpd&tomcat| 15
 7 | init.d/tomcat output > dev/null| less /etc/init.d/tomcat | 5| I used sed to fixed it (on script) | 20
+
+**Questions & Answers**
+
